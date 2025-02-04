@@ -42,17 +42,17 @@ public class PasswordCheckServiceImpl implements PasswordCheckService{
             }
         }
 
-        if (password.length() < 8) {
-            feedback.add("Password must be at least 8 characters long.");
+        if (password.length() < 12) {
+            feedback.add("Password should be at least 12 characters long.");
         }
         if (!UPPER_CASE_PATTERN.matcher(password).find()) {
-            feedback.add("Password must contain at least one uppercase letter.");
+            feedback.add("Password should contain at least one uppercase letter.");
         }
         if (!DIGIT_PATTERN.matcher(password).find()) {
-            feedback.add("Password must contain at least one digit.");
+            feedback.add("Password should contain at least one digit.");
         }
         if (!SPECIAL_CHAR_PATTERN.matcher(password).find()) {
-            feedback.add("Password must contain at least one special character.");
+            feedback.add("Password should contain at least one special character.");
         }
 
         return feedback.isEmpty() ? "Password is strong" : String.join(" ", feedback);
